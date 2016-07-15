@@ -1,7 +1,6 @@
-package com.example;
+package com.example.domain;
 
 import javax.persistence.*;
-import java.util.Locale;
 
 /**
  * Created by professor on 20/06/2016.

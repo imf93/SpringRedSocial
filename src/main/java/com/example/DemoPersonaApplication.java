@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.domain.Persona;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -10,13 +11,14 @@ public class DemoPersonaApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context =SpringApplication.run(DemoPersonaApplication.class, args);
 
-		//PersonaService personaService=context.getBean(PersonaService.class);
-
-		//personaService.testPersonas();
 
 		SocialNetworkService socialNetworkService = context.getBean(SocialNetworkService.class);
 
 
+		testSocialNetwork(socialNetworkService);
+	}
+
+	private static void testSocialNetwork(SocialNetworkService socialNetworkService) {
 		Persona ivan = new Persona();
 		ivan.setNombre("Ivan");
 		ivan.setEdad(23);
