@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.service.DemoPersonaApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;

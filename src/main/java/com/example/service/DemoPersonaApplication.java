@@ -1,4 +1,4 @@
-package com.example;
+package com.example.service;
 
 import com.example.domain.Persona;
 import org.springframework.boot.SpringApplication;

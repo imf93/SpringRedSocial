@@ -1,4 +1,4 @@
-package com.example;
+package com.example.service;
 
 import com.example.domain.Pareja;
 import com.example.domain.Persona;
