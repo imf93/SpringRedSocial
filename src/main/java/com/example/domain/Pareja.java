@@ -2,9 +2,6 @@ package com.example.domain;
 
 import javax.persistence.*;
 
-/**
- * Created by professor on 14/07/2016.
- */
 
 @Entity
 public class Pareja {
