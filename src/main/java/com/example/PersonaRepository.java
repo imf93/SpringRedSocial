@@ -8,8 +8,8 @@ import java.util.List;
  * Created by professor on 20/06/2016.
  */
 public interface PersonaRepository extends JpaRepository<Persona,Long> {
-
-    List<Persona> findByNombre(String nombre);
+    //Solo pude haber una persona con cada nombre
+    Persona findByNombre(String nombre);
 
     List<Persona> findByNombreAndApellido(String nombre, String apellido);
 
