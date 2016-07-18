@@ -1,12 +1,17 @@
 package com.example.service;
 
+import com.example.domain.Amistad;
 import com.example.domain.Pareja;
 import com.example.domain.Persona;
+import com.example.repository.AmistadRepository;
 import com.example.repository.ParejaRepository;
 import com.example.repository.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by professor on 14/07/2016.
@@ -14,10 +19,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class SocialNetworkService {
+    //Para llamar a otros repositorios
     @Autowired
     private PersonaRepository personaRepository;
     @Autowired
     private ParejaRepository parejaRepository;
+
+    @Autowired
+    private AmistadRepository amistadRepository;
+
 
     public void añadirPersona(Persona persona) {
         personaRepository.save(persona);
@@ -59,6 +69,34 @@ public class SocialNetworkService {
         return resultado;
     }
 
+    public Amistad addAmistades(Persona persona1, Persona persona2) {
+        //TODO:gestionar el posible error de que estas dos personas ya pueden ser amigos
+        return amistadRepository.save(new Amistad(persona1, persona2));
 
+    }
+
+    public List<Persona> getAmistades(Persona persona) {
+        List<Amistad> amistades = amistadRepository.getAmistades(persona);
+        List<Persona> resultado = new ArrayList<>();
+
+        for (Amistad amistad : amistades) {
+
+            if (amistad.getPersona1().equals(persona)) {
+
+                resultado.add(amistad.getPersona2());
+            } else if (amistad.getPersona2().equals(persona)) {
+                resultado.add(amistad.getPersona1());
+
+            }
+        }
+
+        return resultado;
+
+    }
 
 }
+
+
+
+
+
